@@ -1,4 +1,4 @@
-require("dotenv").config({ path: require("path").resolve(__dirname, "../../.env") });
+require("dotenv").config({ path: require("path").resolve(__dirname, "../.env") });
 
 module.exports = {
   env: process.env.NODE_ENV || "development",
@@ -11,6 +11,11 @@ module.exports = {
   },
   database: {
     url: process.env.DATABASE_URL,
+  },
+  paystack: {
+    secretKey: process.env.PAYSTACK_SECRET_KEY || "",
+    publicKey: process.env.PAYSTACK_PUBLIC_KEY || "",
+    callbackUrl: process.env.PAYSTACK_CALLBACK_URL || "http://localhost:5000",
   },
   paginate: {
     defaultLimit: 10,
